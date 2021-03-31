@@ -1,0 +1,105 @@
+package com.example.myapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        final EditText txt1 = (EditText) findViewById(R.id.editTextNumber);
+        final  EditText txt2 = (EditText) findViewById(R.id.editTextNumber2);
+        final EditText txt3 = (EditText) findViewById(R.id.editTextNumber3);
+
+        final TextView tv = (TextView) findViewById(R.id.textView3);
+        final TextView tv2 = (TextView) findViewById(R.id.textView2);
+        TextView tv3 = (TextView) findViewById(R.id.textView4);
+        tv3.setVisibility(View.INVISIBLE);
+        Button btn = (Button) findViewById(R.id.button);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                float yas=Float.parseFloat(txt1.getText().toString());
+                float boy = Float.parseFloat(txt2.getText().toString());
+                float kg = Float.parseFloat(txt3.getText().toString());
+                tv3.setVisibility(View.VISIBLE);
+                //Toast.makeText(MainActivity.this,"",Toast.LENGTH_LONG).show();
+                tv.setText(String.valueOf((kg/(boy*boy))*10000));
+                String deger=tv.getText().toString();
+                float degeri=Float.parseFloat(deger);
+                if(1<yas && yas<100) {
+                    if (19 < yas && yas < 24) {
+                        if (degeri > 19 && degeri < 24) {
+                            tv2.setText("Kilonuz saglikli");
+                        } else if (degeri < 19)
+                            tv2.setText("Kilonuz cok az");
+                        else
+                            tv2.setText("Kilonuz cok fazla");
+                    }
+                    if (25 < yas && yas < 34) {
+                        if (degeri > 20 && degeri < 25) {
+                            tv2.setText("Kilonuz saglikli");
+                        } else if (degeri < 20)
+                            tv2.setText("Kilonuz cok az");
+                        else
+                            tv2.setText("Kilonuz cok fazla");
+                    }
+                    if (35 < yas && yas < 44) {
+                        if (degeri > 21 && degeri < 26) {
+                            tv2.setText("Kilonuz saglikli");
+                        } else if (degeri < 21)
+                            tv2.setText("Kilonuz cok az");
+                        else
+                            tv2.setText("Kilonuz cok fazla");
+                    }
+                    if (45 < yas && yas < 54) {
+                        if (degeri > 22 && degeri < 27) {
+                            tv2.setText("Kilonuz saglikli");
+                        } else if (degeri < 22)
+                            tv2.setText("Kilonuz cok az");
+                        else
+                            tv2.setText("Kilonuz cok fazla");
+                    }
+                    if (55 < yas && yas < 64) {
+                        if (degeri > 23 && degeri < 28) {
+                            tv2.setText("Kilonuz saglikli");
+                        } else if (degeri < 23)
+                            tv2.setText("Kilonuz cok az");
+                        else
+                            tv2.setText("Kilonuz cok fazla");
+                    }
+                    if (65 < yas) {
+                        if (degeri > 24 && degeri < 29) {
+                            tv2.setText("Kilonuz saglikli");
+                        } else if (degeri < 24)
+                            tv2.setText("Kilonuz cok az");
+                        else
+                            tv2.setText("Kilonuz cok fazla");
+                    }
+
+
+                }
+            }
+        });
+
+        }
+
+
+    @Override
+    public void onClick(View v) {
+
+    }
+}
+
+
